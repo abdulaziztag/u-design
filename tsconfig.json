@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@components/*": ["./components/*"],
+      "@styles/*": ["./styles/*"],
+      "@assets/*": ["./assets/*"],
+    },
+    "target": "ES6",
+    "module": "ESNext",
+    "jsx": "react-jsx",
+    "declaration": true,
+    "declarationDir": "dist/types",
+    "emitDeclarationOnly": true,
+    "strict": true,
+    "outDir": "dist",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "types": ["node", "jest", "react", "react-dom", "@testing-library/jest-dom"],
+  },
+  "include": ["src/**/*", "./svg.d.ts", "./scss.d.ts"],
+  "exclude": ["node_modules", "dist"]
+}

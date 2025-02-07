@@ -1,0 +1,34 @@
+$color-black: #171429;
+$color-graphite: #262626;
+$color-white: #ffffff;
+$color-gray: #69757a;
+$color-light-gray: #f8fafb;
+$color-neutral: #b1d0da;
+$color-light-blue: #e0f1f6;
+$color-green: #3abaaa;
+$color-soft-blue: #36b7ff;
+$color-red: #ff4e4e;
+$color-orange: #ffa500;
+$color-yellow: #ffd900;
+$color-blue: #6587ff;
+$color-purple: #9747ff;
+
+// Light theme
+$color-gray-stroke: #e9e9e9;
+$color-blue-stroke: #b1d0da;
+$color-primary: #3abaaa;
+$bg-primary: #ffffff;
+$bg-secondary: #bfbebe;
+$text-primary: #1f1f1f;
+$text-secondary: #262626;
+
+// Dark theme
+.dark {
+  $color-gray-stroke: #323232;
+  $color-blue-stroke: #b1d0dA;
+  $color-primary: #59a39a;
+  $bg-primary: #171429;
+  $bg-secondary: #69757a;
+  $text-primary: #f8fafb;
+  $text-secondary: #e9e9e9;
+}
