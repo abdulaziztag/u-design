@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "dist/types",
+    "emitDeclarationOnly": true
+  },
+  "exclude": [
+    "**/*.stories.ts",
+    "**/*.stories.tsx",
+    "**/*.scss",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "src/**/__tests__/**",
+    "node_modules",
+    "dist"
+  ]
+}

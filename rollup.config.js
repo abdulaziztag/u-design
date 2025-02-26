@@ -8,6 +8,8 @@ import resolve from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
 import url from '@rollup/plugin-url';
+import autoprefixer from 'autoprefixer';
+import copy from 'rollup-plugin-copy';
 import del from 'rollup-plugin-delete';
 import { dts } from 'rollup-plugin-dts';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
@@ -38,7 +40,6 @@ export default [
     external: ['react', 'react-dom'],
     plugins: [
       del({ targets: 'dist/*' }),
-      // Use the alias plugin to resolve your custom path aliases:
       alias({
         entries: [
           {
@@ -59,28 +60,28 @@ export default [
       resolve(),
       commonjs(),
       typescript({
-        tsconfig: './tsconfig.json',
-        declarationDir: 'dist/types', // Generates declaration files into this folder
+        tsconfig: './tsconfig.build.json',
         exclude: ['**/__tests__', '**/*.stories.tsx', '**/*.test.tsx'],
       }),
       url({
         include: ['**/*.svg'],
-        // Set limit to 0 to always emit a file (adjust as needed)
         limit: 0,
-        fileName: '[dirname][hash][extname]',
+        fileName: 'assets/icons/[dirname][hash][extname]',
+      }),
+      copy({
+        targets: [{ src: 'src/assets/fonts/*', dest: 'dist/assets/fonts' }],
+        verbose: true,
       }),
       postcss({
-        // All CSS (both global and CSS Modules) will be extracted into one file.
-        extract: 'styles/index.css',
+        extract: 'styles/global.css', // All CSS will be extracted into this one file
         minimize: true,
-        // Files matching *.module.scss will be treated as CSS Modules.
-        autoModules: true,
+        // Only process CSS modules for files matching *.module.scss
         modules: {
-          // This ensures that a default export (the mapping object) is created.
-          namedExports: false,
+          auto: (id) => /\.module\.scss$/i.test(id),
           generateScopedName: '[name]__[local]___[hash:base64:5]',
         },
         use: ['sass'],
+        plugins: [autoprefixer()],
       }),
       terser(),
     ],

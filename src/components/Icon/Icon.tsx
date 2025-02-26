@@ -5,8 +5,6 @@ import {
 } from '@components/Icon/icons-outlined';
 import React from 'react';
 
-import './Icon.module.scss';
-
 export interface IconProps extends React.SVGProps<SVGSVGElement> {
   name: FilledIconName | OutlinedIconName;
   size?: number | string;

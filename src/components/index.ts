@@ -1,2 +1,2 @@
-export * from '@components/Button/Button';
-export * from '@components/Icon/Icon';
+export { UButton } from './Button/Button';
+export { Icon } from './Icon/Icon';

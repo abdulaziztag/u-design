@@ -1,12 +1,13 @@
 {
   "name": "u-design",
-  "version": "0.1.0",
+  "version": "1.0.2",
   "description": "Ugaz component library",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "repository": "https://github.com/abdulaziztag/u-design",
   "scripts": {
-    "build": "npm run build:style-types && npm run generate:icons && rollup -c --bundleConfigAsCjs",
+    "build": "npm run generate:icons && rollup -c --bundleConfigAsCjs",
     "test": "jest",
     "test:watch": "jest --watch",
     "lint": "eslint src --ext=.ts,.tsx",
@@ -32,7 +33,7 @@
   ],
   "author": "Abdulaziz Manopov",
   "license": "ISC",
-  "style": "dist/styles.css",
+  "style": "dist/styles/global.css",
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.4",
     "@eslint/compat": "^1.2.5",
@@ -80,6 +81,7 @@
     "lint-staged": "^15.4.3",
     "prettier": "^3.4.2",
     "rollup": "^4.34.1",
+    "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-delete": "^2.1.0",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
@@ -106,6 +108,7 @@
     ]
   },
   "dependencies": {
+    "autoprefixer": "^10.4.20",
     "clsx": "^2.1.1"
   },
   "files": [
