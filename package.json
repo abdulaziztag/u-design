@@ -1,9 +1,9 @@
 {
   "name": "u-design",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Ugaz component library",
-  "main": "dist/esm/index.js",
-  "module": "dist/esm/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "style": "dist/styles/global.css",
   "files": [
