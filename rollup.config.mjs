@@ -10,6 +10,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
 import url from '@rollup/plugin-url';
+import svgr from '@svgr/rollup';
 import autoprefixer from 'autoprefixer';
 import copy from 'rollup-plugin-copy';
 import del from 'rollup-plugin-delete';
@@ -48,6 +49,8 @@ export default {
 
     // 4) Resolve node modules
     resolve(),
+
+    svgr({ icon: true }),
 
     // 5) CommonJS modules
     commonjs(),
