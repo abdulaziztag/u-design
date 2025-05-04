@@ -28,8 +28,10 @@ export default {
   input: 'src/index.ts',
   external: ['react', 'react-dom', 'tslib'],
   plugins: [
+    // 1) Clean the output folder
     del({ targets: 'dist/*' }),
 
+    // 2) Path aliases
     alias({
       entries: [
         {
@@ -41,46 +43,59 @@ export default {
       ],
     }),
 
+    // 3) Externalize peer deps
     peerDepsExternal(),
-    resolve(),
-    commonjs(),
 
-    // if you ever import JSON in your library code:
+    // 4) Resolve node modules
+    resolve(),
+
+    // 5) CommonJS modules
+    commonjs(),
     json(),
 
+    // 6) SVGs → URLs or components
     url({
       include: ['**/*.svg'],
       limit: 0,
       fileName: 'assets/icons/[dirname][hash][extname]',
     }),
 
+    // 7a) Component SCSS modules: compile & inject
+    postcss({
+      include: /\.module\.scss$/,
+      modules: { generateScopedName: '[name]__[local]___[hash:base64:5]' },
+      inject: true,
+      minimize: false,
+      use: ['sass'],
+      plugins: [autoprefixer()],
+    }),
+
+    // 7b) Global styles: compile & extract
+    postcss({
+      include: /global\.scss$/,
+      extract: 'dist/styles/global.css',
+      minimize: true,
+      use: ['sass'],
+      plugins: [autoprefixer()],
+    }),
+
+    // 8) TypeScript compilation (emit .d.ts too)
     typescript({
       tsconfig: './tsconfig.build.json',
       declaration: true,
       declarationDir: 'dist/types',
       exclude: ['**/__tests__', '**/*.stories.tsx', '**/*.test.tsx'],
     }),
+
+    // 9) Copy static assets & SCSS partials
     copy({
       targets: [
         { src: 'src/assets/fonts/*', dest: 'dist/assets/fonts' },
-        {
-          src: 'src/styles/**/*.scss',
-          dest: 'dist/scss',
-        },
+        { src: 'src/styles/**/*.scss', dest: 'dist/scss' },
       ],
     }),
 
-    postcss({
-      extract: 'styles/global.css',
-      minimize: true,
-      modules: {
-        auto: /\.module\.scss$/i,
-        generateScopedName: '[name]__[local]___[hash:base64:5]',
-      },
-      use: ['sass'],
-      plugins: [autoprefixer()],
-    }),
-
+    // 10) Minify JS
     terser(),
   ],
 
