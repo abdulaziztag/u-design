@@ -1,17 +1,10 @@
-import { FilledIconName, FilledIcons } from '@components/Icon/icons-filled';
-import {
-  OutlinedIconName,
-  OutlinedIcons,
-} from '@components/Icon/icons-outlined';
 import React from 'react';
 
-export interface IconProps extends React.SVGProps<SVGSVGElement> {
-  name: FilledIconName | OutlinedIconName;
-  size?: number | string;
-  color?: string;
-}
+import { UIconProps } from './Icon.type';
+import { FilledIconName, FilledIcons } from './icons-filled';
+import { OutlinedIconName, OutlinedIcons } from './icons-outlined';
 
-export const Icon: React.FC<IconProps> = ({
+export const UIcon: React.FC<UIconProps> = ({
   name,
   size = 48,
   color = 'currentColor',

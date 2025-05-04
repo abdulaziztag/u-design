@@ -23,7 +23,7 @@ function generateIconsFile(type) {
     .map((file) => file.replace('.svg', ''));
 
   const fileContent = `
-  ${icons.map((icon) => `import ${kebabToPascalCase(icon)}${capitalized} from '@assets/icons/${type}/${icon}.svg';`).join('\n')}
+  ${icons.map((icon) => `import ${kebabToPascalCase(icon)}${capitalized} from '../../assets/icons/${type}/${icon}.svg';`).join('\n')}
 
   export const ${capitalized}Icons = {
     ${icons.map((icon) => `${kebabToPascalCase(icon)}${capitalized},`).join('\n')}

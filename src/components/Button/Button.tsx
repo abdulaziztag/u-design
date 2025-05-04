@@ -1,10 +1,9 @@
-import { ButtonHTMLAttributes, forwardRef, memo } from 'react';
+import { forwardRef, memo } from 'react';
 
 import styles from './Button.module.scss';
+import { UButtonProps } from './Button.type';
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
-
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+const Button = forwardRef<HTMLButtonElement, UButtonProps>(
   ({ children, ...props }, ref) => {
     return (
       <button ref={ref} className={styles.uButton} {...props}>

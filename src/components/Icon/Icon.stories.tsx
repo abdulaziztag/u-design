@@ -6,11 +6,11 @@ import {
 import { Meta, StoryFn } from '@storybook/react';
 import React from 'react';
 
-import { Icon } from './Icon';
+import { UIcon } from './Icon';
 
 export default {
   title: 'Components/Icon',
-  component: Icon,
+  component: UIcon,
   argTypes: {
     name: {
       control: 'select',
@@ -23,9 +23,9 @@ export default {
       control: 'color',
     },
   },
-} as Meta<typeof Icon>;
+} as Meta<typeof UIcon>;
 
-const Template: StoryFn<typeof Icon> = (args) => <Icon {...args} />;
+const Template: StoryFn<typeof UIcon> = (args) => <UIcon {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

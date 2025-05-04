@@ -1,2 +1,2 @@
 export { UButton } from './Button/Button';
-export { Icon } from './Icon/Icon';
+export { UIcon } from './Icon/Icon';
