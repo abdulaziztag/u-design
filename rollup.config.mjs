@@ -50,7 +50,10 @@ export default {
     // 4) Resolve node modules
     resolve(),
 
-    svgr({ icon: true }),
+    svgr({
+      include: path.resolve(__dirname, 'src/assets/icons/**'),
+      icon: true,
+    }),
 
     // 5) CommonJS modules
     commonjs(),
@@ -59,6 +62,7 @@ export default {
     // 6) SVGs → URLs or components
     url({
       include: ['**/*.svg'],
+      exclude: [path.resolve(__dirname, 'src/assets/icons/**')],
       limit: 0,
       fileName: 'assets/icons/[dirname][hash][extname]',
     }),
