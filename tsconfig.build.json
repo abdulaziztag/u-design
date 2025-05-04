@@ -3,8 +3,12 @@
   "compilerOptions": {
     "declaration": true,
     "declarationDir": "dist/types",
-    "emitDeclarationOnly": true
+    "emitDeclarationOnly": true,
   },
+  "include": [
+    "src/**/*",
+    "@types/**/*.d.ts",
+  ],
   "exclude": [
     "**/*.stories.ts",
     "**/*.stories.tsx",
