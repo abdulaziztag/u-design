@@ -13,15 +13,13 @@
     "outDir": "dist",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "skipLibCheck": true,
+    "skipLibCheck": false,
     "resolveJsonModule": true,
     "types": ["node", "jest", "react", "react-dom", "@testing-library/jest-dom"]
   },
   "include": [
     "src/**/*",
-    "./svg.d.ts",
-    "./scss.d.ts",
-    "./fonts.d.ts"
+    "@types/**/*.d.ts",
   ],
   "exclude": [
     "node_modules",

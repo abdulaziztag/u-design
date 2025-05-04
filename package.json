@@ -1,13 +1,19 @@
 {
   "name": "u-design",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Ugaz component library",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/esm/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "style": "dist/styles/global.css",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "repository": "https://github.com/abdulaziztag/u-design",
   "scripts": {
-    "build": "npm run generate:icons && rollup -c --bundleConfigAsCjs",
+    "prebuild": "npm run generate:icons",
+    "build": "rollup -c",
     "test": "jest",
     "test:watch": "jest --watch",
     "lint": "eslint src --ext=.ts,.tsx",
@@ -33,13 +39,13 @@
   ],
   "author": "Abdulaziz Manopov",
   "license": "ISC",
-  "style": "dist/styles/global.css",
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.4",
     "@eslint/compat": "^1.2.5",
     "@eslint/js": "^9.19.0",
     "@rollup/plugin-alias": "^5.1.1",
     "@rollup/plugin-commonjs": "^28.0.2",
+    "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.0",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^12.1.2",
@@ -95,6 +101,7 @@
     "ts-jest": "^29.2.5",
     "typed-scss-modules": "^8.1.1",
     "typescript": "^5.7.3",
+    "autoprefixer": "^10.4.20",
     "typescript-eslint": "^8.21.0"
   },
   "lint-staged": {
@@ -108,11 +115,6 @@
     ]
   },
   "dependencies": {
-    "autoprefixer": "^10.4.20",
     "clsx": "^2.1.1"
-  },
-  "files": [
-    "dist",
-    "README.md"
-  ]
+  }
 }
