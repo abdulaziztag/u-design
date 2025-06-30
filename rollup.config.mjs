@@ -27,7 +27,7 @@ const pkg = JSON.parse(
 
 export default {
   input: 'src/index.ts',
-  external: ['react', 'react-dom', 'tslib', 'style-inject'],
+  external: ['react', 'react-dom', 'tslib'],
   plugins: [
     // 1) Clean the output folder
     del({ targets: 'dist/*' }),
@@ -81,7 +81,7 @@ export default {
     postcss({
       include: /\.scss$/,
       exclude: /\.module\.scss$/,
-      extract: 'dist/styles/global.css',
+      extract: 'styles/global.css',
       minimize: true,
       use: ['sass'],
       plugins: [autoprefixer()],

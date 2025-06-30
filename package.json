@@ -13,6 +13,7 @@
   "repository": "https://github.com/abdulaziztag/u-design",
   "scripts": {
     "prebuild": "npm run generate:icons",
+    "postbuild": "rimraf dist/node_modules",
     "build": "rollup -c",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -88,6 +89,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "lint-staged": "^15.4.3",
     "prettier": "^3.4.2",
+    "rimraf": "^6.0.1",
     "rollup": "^4.34.1",
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-delete": "^2.1.0",
